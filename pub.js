@@ -1,5 +1,5 @@
 var mqtt = require('mqtt')
-var client = mqtt.connect('mqtt://localhost:8080')
+var client = mqtt.connect('mqtt://localhost:1883')
 var topic = 'maquinadelavar123'
 var message = "Sua lavagem acabou, pode retirar suas roupas :) "
 var status=1;

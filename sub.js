@@ -1,5 +1,5 @@
 var mqtt = require('mqtt')
-var client = mqtt.connect('mqtt://localhost:8080')
+var client = mqtt.connect('mqtt://localhost:1883')
 var topic = 'maquinadelavar123'
 
 client.on('message', (topic, message)=>{

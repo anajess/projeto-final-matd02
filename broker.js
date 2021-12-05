@@ -1,5 +1,5 @@
 var mosca = require('mosca')
-var settings = {port: 8080}
+var settings = {port: 1883}
 var broker = new mosca.Server(settings)
 
 broker.on('ready', ()=>{
