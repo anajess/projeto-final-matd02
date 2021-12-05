@@ -3,7 +3,7 @@ var client = mqtt.connect('mqtt://localhost:8080')
 var topic = 'maquinadelavar123'
 var message = "Sua lavagem acabou, pode retirar suas roupas :) "
 var status=1;
-var time = 6000; 
+var time = 60000; 
 
 client.on('message', (topic, message)=>{
     message = message.toString()
@@ -13,16 +13,13 @@ client.on('message', (topic, message)=>{
 client.on('connect', ()=>{
     if (status == 1){
       while (time != 0){
-        time = time - 600;
+        time = time - 6000;
       }
       if (time == 0){
         status = 0;
         if (status == 0){
-          setInterval(()=>{
             client.publish(topic, message)
             console.log('Mensagem enviada', message)
-            break;
-          })
         }
       }
     }else{}
