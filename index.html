@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>test Ws mqtt.js</title>
+</head>
+<body>
+    <h1>VERIFICADOR DE LAVADORA</h1>
+    <p>Olá, sei que está muito ocupado, e por isso estou aqui para te lembrar que você colocou suas roupas para lavar!</p>
+    <h5>STATUS DA LAVADORA: </h5>
+<script src="./browserMqtt.js"></script>
+<script>
+  var connection = new WebSocket('ws://localhost:8080', 'mqtt');
+  var client = mqtt.connect() // you add a ws:// url here
+  client.subscribe("mqtt/demo")
+
+  client.on("message", function (topic, payload) {
+    alert([topic, payload].join(": "))
+    client.end()
+  })
+
+  client.publish("mqtt/demo", "hello world!")
+</script>
+</body>
+</html>
